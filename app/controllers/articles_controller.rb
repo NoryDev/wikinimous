@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -6,6 +7,8 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
+    @content = markdown.render(@article.content)
   end
 
   def new

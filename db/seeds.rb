@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+10.times do |article|
+  content = Faker::Lorem.paragraphs(4).map{ |paragraph| "<p>"+paragraph+"</p>" }.join
+  Article.create(title: Faker::Company.catch_phrase, content: content)
+end

@@ -1,2 +1,16 @@
-<h1>Articles#show</h1>
-<p>Find me in app/views/articles/show.html.erb</p>
+<article>
+  <h1><%= @article.title %>
+    <small>
+      <%= link_to( edit_article_path(@article.id) ) do %>
+        <i class="fa fa-pencil"></i>
+      <% end %>
+
+      <%= link_to( article_path(@article.id), method: :delete, data: { confirm: "Are you sure?" } ) do %>
+        <i class="fa fa-trash-o"></i>
+      <% end %>
+    </small>
+  </h1>
+  <div>
+    <%= raw(@content) %>
+  </dvi>
+</article>
